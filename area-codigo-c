@@ -1,0 +1,48 @@
+ #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+ 
+    int fa, b, interv, n;
+    double triangulo, retangulo, trapezio, delx, St, St2, St3;
+  
+    printf("Digite o valor de A: ");
+    scanf("%d", &fa);
+
+    printf("Digite o valor de B: ");
+    scanf("%d", &b);
+
+    printf("Digite o valor de Intervalos (N): ");
+    scanf("%d", &interv);
+
+    delx = (b - fa) / 2.0;
+
+    printf("delx = %f\n", delx);
+
+   for (int i = 1; i <= interv; i++){
+       retangulo = delx * (fa + (i-1)* delx);
+       printf("retangulo S%d = %f\n", i, retangulo);
+       St = St + retangulo;
+   }
+   
+    
+
+   for (int i = 1; i <= interv; i++){
+       trapezio = delx * (fa + ( i -1) * delx) + delx / 2 * ( (fa + i * delx) - (fa + ( i -1) * delx) );
+       printf("Trapezio S%d = %f\n", i, trapezio);
+       St2 = St2 + trapezio;
+   }
+   
+    for (int i = 1; i <= interv; i++){
+       triangulo = ( b - fa / interv) * (( a + (i - 1) * (b- fa / interv) ^ 2 ) + 1/2 * ( b- a / interv) * ( ( a + ( i - 1) * ( b - a / interv) * 1/2 ) ^ 2 ) - ( ( a + ( i -1) * (b - a / interv) ^ 2 )
+       printf("Triangulo S%d = %f\n", i, triangulo);
+       St3 = St3 + triangulo;
+   }
+   
+   printf(" A soma total das aréas do retangulo é igual a = %f\n", St);
+   printf(" A soma total das aréas do Trapezio é igual a = %f\n", St2);
+   printf(" A soma total das aréas do Triangulo equilatero é igual a = %f\n", St3);
+   
+   
+    return 0;
